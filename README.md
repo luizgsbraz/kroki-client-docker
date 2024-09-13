@@ -1,3 +1,3 @@
-# kroki-client-docker
+# Kroki Client 
 
-criar imagem kroki-client para uso no projeto kroki-client-user
+Constroi o kroki-client usado no projeto kroki-client-user
