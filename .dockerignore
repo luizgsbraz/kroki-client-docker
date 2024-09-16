@@ -1,0 +1,6 @@
+build.sh
+Dockerfile
+README.md
+.gitignore
+.github
+.dockerignore
