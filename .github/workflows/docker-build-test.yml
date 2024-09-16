@@ -21,11 +21,11 @@ jobs:
     steps:
       # Checkout the repository
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Set up Docker Buildx for multi-platform builds
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
     #   # Log in to Docker Hub (you can configure your Docker Hub credentials in GitHub Secrets)
     #   - name: Log in to Docker Hub
