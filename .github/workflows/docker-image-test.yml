@@ -1,0 +1,24 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "test" ]
+  pull_request:
+    branches: [ "test" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    
+    env:
+      IMAGE_BASENAME: kroki-client
+      IMAGE_TAG: ${{ github.ref == 'refs/heads/main' && 'test' || github.sha }}
+      FULL_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/$IMAGE_BASENAME:$IMAGE_TAG
+      
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag $FULL_IMAGE_NAME 
+        # run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
