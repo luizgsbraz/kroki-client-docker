@@ -37,6 +37,7 @@ jobs:
       # Build the Docker image
       - name: Build Docker image
         run: |
+          echo $FULL_IMAGE_NAME
           docker build -t $FULL_IMAGE_NAME .
 
     #   # Run tests inside the built container
