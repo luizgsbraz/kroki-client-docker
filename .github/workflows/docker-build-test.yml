@@ -13,10 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_BASENAME: kroki-client
-      IMAGE_TAG: ${{ github.sha }}
-      FULL_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/$IMAGE_BASENAME:$IMAGE_TAG
-      # FULL_IMAGE_NAME: $IMAGE_BASENAME:$IMAGE_TAG
+      environment: ${{ vars.PRODUCAO }}
+      # IMAGE_BASENAME: kroki-client
+      # IMAGE_TAG: ${{ github.sha }}
+      # FULL_IMAGE_NAME: ${{ enviroment.DOCKERHUB_USERNAME }}/$IMAGE_BASENAME:$IMAGE_TAG
+      # # FULL_IMAGE_NAME: $IMAGE_BASENAME:$IMAGE_TAG
 
     steps:
       # Checkout the repository
@@ -38,7 +39,12 @@ jobs:
       - name: Build Docker image
         run: |
           echo $FULL_IMAGE_NAME
-          docker build -t $FULL_IMAGE_NAME .
+          docker build -t luizgsbraz/kroki-client:latest .
+
+      # - name: Build Docker image
+      #   run: |
+      #     echo $FULL_IMAGE_NAME
+      #     docker build -t $FULL_IMAGE_NAME .
 
     #   # Run tests inside the built container
     #   - name: Run container tests
