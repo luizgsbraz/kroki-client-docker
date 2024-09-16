@@ -7,6 +7,8 @@ on:
   pull_request:
     branches:
       - main
+env:
+  DOCKERHUB_USER: ${{ vars.DOCKERHUB_USERNAME }}
 
 jobs:
   build:
@@ -38,7 +40,7 @@ jobs:
       # Build the Docker image
       - name: Build Docker image
         run: |
-          docker build -t ${{ vars.DOCKERHUB_USER }}/kroki-client:latest .
+          docker build -t ${{ DOCKERHUB_USER }}/kroki-client:latest .
 
       # - name: Build Docker image
       #   run: |
