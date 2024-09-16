@@ -1,4 +1,4 @@
-name: TestBuildingProcess
+name: Build Image CI
 
 on:
   push:
@@ -19,8 +19,6 @@ jobs:
       DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}       
       IMAGE_TAG: ${{ github.sha }}
      
-      # FULLFILENAME: $DOCKERHUB_USERNAME/$IMAGE_BASENAME:$IMAGE_TAG    
-
     steps:
       # Definir a variável FULLFILENAME no primeiro step
       - name: Set FULLFILENAME
@@ -36,8 +34,6 @@ jobs:
 
       # Build the Docker image
       - name: Build Docker image
-        # env:
-        #   FULLFILENAME: $DOCKERHUB_USERNAME/$IMAGE_BASENAME:$IMAGE_TAG         
         run: |
             docker build -t $FULLFILENAME .
 
