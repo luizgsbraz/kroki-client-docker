@@ -35,7 +35,7 @@ jobs:
 
       - name: Tag the latest image
         run: |
-            docker --tag $FULL_LATEST_IMAGE_NAME $FULL_IMAGE_NAME
+            docker tag $FULL_LATEST_IMAGE_NAME $FULL_IMAGE_NAME
 
       - name: Push to Docker Hub
         env:
