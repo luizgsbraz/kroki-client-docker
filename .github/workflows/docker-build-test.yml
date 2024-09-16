@@ -14,9 +14,9 @@ jobs:
 
     env:
       IMAGE_BASENAME: kroki-client
-      IMAGE_TAG: ${{ github.ref == 'refs/heads/main' && 'autotest' || github.sha }}
-      # FULL_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/$IMAGE_BASENAME:$IMAGE_TAG
-      FULL_IMAGE_NAME: $IMAGE_BASENAME:$IMAGE_TAG
+      IMAGE_TAG: ${{ github.sha }}
+      FULL_IMAGE_NAME: ${{ secrets.DOCKER_USERNAME }}/$IMAGE_BASENAME:$IMAGE_TAG
+      # FULL_IMAGE_NAME: $IMAGE_BASENAME:$IMAGE_TAG
 
     steps:
       # Checkout the repository
