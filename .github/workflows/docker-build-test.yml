@@ -12,12 +12,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  env:
-      environment: PRODUCAO 
-      # IMAGE_BASENAME: kroki-client
-      # IMAGE_TAG: ${{ github.sha }}
-      # FULL_IMAGE_NAME: ${{ enviroment.DOCKERHUB_USERNAME }}/$IMAGE_BASENAME:$IMAGE_TAG
-      # # FULL_IMAGE_NAME: $IMAGE_BASENAME:$IMAGE_TAG
+    env:
+        environment: PRODUCAO 
+        # IMAGE_BASENAME: kroki-client
+        # IMAGE_TAG: ${{ github.sha }}
+        # FULL_IMAGE_NAME: ${{ enviroment.DOCKERHUB_USERNAME }}/$IMAGE_BASENAME:$IMAGE_TAG
+        # # FULL_IMAGE_NAME: $IMAGE_BASENAME:$IMAGE_TAG
 
     steps:
       # Checkout the repository
