@@ -16,9 +16,9 @@ jobs:
 
     env:
       IMAGE_BASENAME: kroki-client
-      IMAGE_TAG: ${{ github.sha }}
       DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}       
-      # FULLFILENAME: $DOCKERHUB_USERNAME/$IMAGE_BASENAME:$IMAGE_TAG    
+      IMAGE_TAG: ${{ github.sha }}
+      FULLFILENAME: $DOCKERHUB_USERNAME/$IMAGE_BASENAME:$IMAGE_TAG    
 
     steps:
       # Checkout the repository
@@ -31,8 +31,8 @@ jobs:
 
       # Build the Docker image
       - name: Build Docker image
-        env:
-          FULLFILENAME: $DOCKERHUB_USERNAME/$IMAGE_BASENAME:$IMAGE_TAG         
+        # env:
+        #   FULLFILENAME: $DOCKERHUB_USERNAME/$IMAGE_BASENAME:$IMAGE_TAG         
         run: |
             docker build -t $FULLFILENAME .
 
