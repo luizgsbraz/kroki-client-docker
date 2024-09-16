@@ -1,12 +1,12 @@
-name: Build Image 
+name: Build Latest Image 
 
 on:
   push:
     branches:
-      - main
+      - latest
   pull_request:
     branches:
-      - main
+      - latest
 
 jobs:
   build:
