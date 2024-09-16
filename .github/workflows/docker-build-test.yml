@@ -38,7 +38,7 @@ jobs:
       # Build the Docker image
       - name: Build Docker image
         env:
-          segredim: ${{ vars.DOCKERHUB_USERNAME }}
+          segredim: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
             docker build -t $segredim/kroki-client:latest .
 
