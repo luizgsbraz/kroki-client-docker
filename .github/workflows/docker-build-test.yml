@@ -40,7 +40,7 @@ jobs:
         env:
           segredim: ${{ vars.DOCKERHUB_USERNAME }}
         run: |
-            docker build -t ${{ segredim }}/kroki-client:latest .
+            docker build -t $segredim/kroki-client:latest .
 
       # - name: Build Docker image
       #   run: |
