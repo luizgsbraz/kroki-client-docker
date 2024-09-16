@@ -12,8 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-  # env:
-    #   environment: PRODUCAO 
+  env:
+      environment: PRODUCAO 
       # IMAGE_BASENAME: kroki-client
       # IMAGE_TAG: ${{ github.sha }}
       # FULL_IMAGE_NAME: ${{ enviroment.DOCKERHUB_USERNAME }}/$IMAGE_BASENAME:$IMAGE_TAG
