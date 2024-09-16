@@ -38,7 +38,8 @@ jobs:
       - name: Build Docker image
         env:
           # segredim: lixo
-          segredim: ${{ secrets.DOCKERHUB_PASSWORD }}          
+          # segredim: ${{ secrets.DOCKERHUB_PASSWORD }}          
+          segredim: ${{ vars.DOCKERHUB_USERNAME }}          
         run: |
             docker build -t $segredim/kroki-client:latest .
 
