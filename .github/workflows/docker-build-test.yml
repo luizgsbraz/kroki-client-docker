@@ -18,9 +18,14 @@ jobs:
       IMAGE_BASENAME: kroki-client
       DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}       
       IMAGE_TAG: ${{ github.sha }}
-      FULLFILENAME: $DOCKERHUB_USERNAME/$IMAGE_BASENAME:$IMAGE_TAG    
+     
+      # FULLFILENAME: $DOCKERHUB_USERNAME/$IMAGE_BASENAME:$IMAGE_TAG    
 
     steps:
+      # Definir a variável FULLFILENAME no primeiro step
+      - name: Set FULLFILENAME
+        run: echo "FULLFILENAME=$DOCKERHUB_USERNAME/$IMAGE_BASENAME:$IMAGE_TAG" >> $GITHUB_ENV
+
       # Checkout the repository
       - name: Checkout code
         uses: actions/checkout@v4
