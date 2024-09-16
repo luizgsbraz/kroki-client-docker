@@ -7,15 +7,16 @@ on:
   pull_request:
     branches:
       - main
-env:
-  DOCKERHUB_USER: ${{ vars.DOCKERHUB_USERNAME }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     env:
-      environment: PRODUCAO 
+      DOCKERHUB_USER: ${{ vars.DOCKERHUB_USERNAME }}
+
+    # env:
+    #   environment: PRODUCAO 
       # IMAGE_BASENAME: kroki-client
       # IMAGE_TAG: ${{ github.sha }}
       # FULL_IMAGE_NAME: ${{ enviroment.DOCKERHUB_USERNAME }}/$IMAGE_BASENAME:$IMAGE_TAG
