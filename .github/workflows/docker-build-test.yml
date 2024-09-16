@@ -12,10 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    env:
-      DOCKERHUB_USER: ${{ vars.DOCKERHUB_USERNAME }}
-
-    # env:
+  # env:
     #   environment: PRODUCAO 
       # IMAGE_BASENAME: kroki-client
       # IMAGE_TAG: ${{ github.sha }}
@@ -40,8 +37,10 @@ jobs:
 
       # Build the Docker image
       - name: Build Docker image
+        env:
+          segredim: ${{ vars.DOCKERHUB_USERNAME }}
         run: |
-          docker build -t ${{ DOCKERHUB_USER }}/kroki-client:latest .
+            docker build -t ${{ segredim }}/kroki-client:latest .
 
       # - name: Build Docker image
       #   run: |
