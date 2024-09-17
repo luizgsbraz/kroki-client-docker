@@ -6,7 +6,9 @@ Constroi o kroki-client usado no projeto [kroki-client-user](https://github.com/
 
 A idéia é baixar direto do docker hub.
 
-## Deployment Process
+## Processo de Construção Liberação de Novas Versões
+
+As releases do branch latest geram novas imagens no Docker Hub.
 
 ```mermaid
 gitGraph
