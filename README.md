@@ -11,7 +11,7 @@ A idéia é baixar direto do docker hub.
 As releases do branch latest geram novas imagens no Docker Hub.
 
 ```mermaid
-gitGraph
+gitGraph TB:
     branch latest
     checkout latest
     commit id: "v1.0-latest"
