@@ -6,10 +6,42 @@ Constroi o kroki-client usado no projeto [kroki-client-user](https://github.com/
 
 A idéia é baixar direto do docker hub.
 
+## Deployment Process
+
 ```mermaid
-erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-    ORDER ||--|{ LINE-ITEM : contains
-    DELIVERY-ADDRESS ||--o{ COUNTRY : is located in
+gitGraph
+    branch latest
+    checkout latest
+    commit id: "v1.0-latest"
+    branch build-test
+    checkout build-test
+    checkout main
+    commit id: "CHANGE 01"
+    commit id: "CHANGE 02"  
+    merge latest
+    commit id: "CHANGE 03"
+    commit id: "CHANGE 04"        
+    commit id: "RC1"
+    checkout build-test
+    merge main
+    commit id: "RC1 Fail"
+    checkout main
+    commit id: "CHANGE 05 - Fix Fail - RC2"
+    checkout build-test
+    merge main
+    commit id: "RC2 OK"
+    checkout main
+    commit id: "CHANGE 06 - RC3"        
+    checkout build-test
+    merge main
+    commit id: "RC3 OK"
+    checkout main
+    commit id: "CHANGE 07"        
+    commit id: "CHANGE 08"            
+    merge build-test
+    checkout latest
+    merge build-test
+    commit id: "v1.1-latest"
+    checkout main
+    merge latest
 ```
