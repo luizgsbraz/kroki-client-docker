@@ -3,10 +3,10 @@ name: Build Latest Image
 on:
   push:
     branches:
-      - latest
+      - build-test
   pull_request:
     branches:
-      - latest
+      - build-test
 
 jobs:
   build:
