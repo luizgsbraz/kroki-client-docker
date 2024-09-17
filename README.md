@@ -26,9 +26,9 @@ gitGraph
     commit id: "RC1"
     checkout build-test
     merge main
-    commit id: "RC1 Fail"
+    commit type:REVERSE id: "RC1 Fail"
     checkout main
-    commit type:REVERSE id: "CHANGE 05 - Fix Fail - RC2"
+    commit id: "CHANGE 05 - Fix Fail - RC2"
     checkout build-test
     merge main
     commit id: "RC2 OK"
