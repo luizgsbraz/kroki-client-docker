@@ -1,0 +1,52 @@
+services:
+  core:
+    image: docker.io/yuzutech/kroki
+    environment:
+      - KROKI_MERMAID_HOST=${ENV_KROKI_MERMAID_HOST:-mermaid}
+      - KROKI_BPMN_HOST=${ENV_KROKI_BPMN_HOST:-bpmn}
+      - KROKI_EXCALIDRAW_HOST=${ENV_KROKI_EXCALIDRAW_HOST:-excalidraw}
+    ports:
+      - "8000"  # Porta interna para o cliente acessar o core
+    networks:
+      - app-net2
+      
+  mermaid:
+    image: docker.io/yuzutech/kroki-mermaid
+    ports:
+      - "8002"  # Porta interna para o core acessar o mermaid
+    networks:
+      - app-net2
+      
+  bpmn:
+    image: docker.io/yuzutech/kroki-bpmn
+    ports:
+      - "8003"  # Porta interna para o core acessar o bpmn
+    networks:
+      - app-net2
+      
+  excalidraw:
+    image: docker.io/yuzutech/kroki-excalidraw
+    ports:
+      - "8004"  # Porta interna para o core acessar o excalidraw
+    networks:
+      - app-net2
+      
+  my-client:
+    image: docker.io/luizgsbraz/kroki-client:testing
+    environment:
+      ENV_KROKI_BASE_URL: "http://core:8000"  
+    volumes:
+      - "${SRC_DIR}:/app/work/src:ro,Z"
+      - "${BUILD_DIR}:/app/work/build:rw,Z"
+      - "${LOG_DIR}:/app/work/log:rw,Z"
+    networks:
+      - app-net2
+    depends_on:
+      - core
+      - mermaid
+      - bpmn
+      - excalidraw
+
+networks:
+  app-net2:
+    driver: bridge
