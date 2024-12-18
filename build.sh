@@ -30,6 +30,7 @@ fi
 RELEASE_NUM=$(date +%s)
 
 TAG="testing"
+
 if [ "$prod" = true ]
 then
     TAG="latest"
