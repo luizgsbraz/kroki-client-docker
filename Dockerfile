@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk --no-cache upgrade && apk add curl
+RUN apk --no-cache upgrade && apk add curl && apk add jq && apk add bash && apk add coreutils && apk add sed && apk add file 
 
 WORKDIR /app
 
